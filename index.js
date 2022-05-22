@@ -1,5 +1,6 @@
 const express = require('express');
 const app = express();
+const host = process.env.IP  || '0.0.0.0';
 const port = process.env.PORT || 8080;
 const utils = require('./utils.js');
 
@@ -15,6 +16,4 @@ app.get("/", async (req, res) => {
     }
 });
 
-app.listen(port, () => {
-    console.log('Server started.');
-})
+app.listen(port, host);
